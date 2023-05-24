@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "35e7b8d1-6267-47c6-a69f-df81d3b61366",
+		"name": "ping-tree",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24742994",
+		"_collection_link": "https://red-firefly-904592.postman.co/workspace/sage-advice~244f4fb2-b2ff-45cf-912c-68ef69bbb790/collection/24742994-35e7b8d1-6267-47c6-a69f-df81d3b61366?action=share&creator=24742994&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Create Target",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n     \"id\": \"2\",\r\n     \"url\": \"http://example.1.com\",\r\n     \"value\": 0.4,\r\n     \"maxAcceptsPerDay\": 5,\r\n     \"accept\": {\r\n         \"geoState\": {\r\n             \"$in\": [\"ca\",\"ny\"]\r\n         },\r\n           \"hour\": {\r\n             \"$in\": [ 13,16]\r\n           }\r\n     }\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/targets",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"targets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Targets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/targets",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"targets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Target By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/targets/3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"targets",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Target Max Attempts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/targets/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"targets",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Decision",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"geoState\": \"ca\",\r\n     \"publisher\": \"abc\",\r\n     \"timestamp\": \"2018-07-19T13:28:59.513Z\"\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/route",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"route"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
