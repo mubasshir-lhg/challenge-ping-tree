@@ -1,7 +1,9 @@
+// Configuring to read .env file
+require("dotenv").config({
+    path:".env"
+  });
 var name = require('./package.json').name
 require('productionize')(name)
+const server=require('./lib/server');
 
-var server = require('./lib/server')
-var port = process.env.PORT || 5000
-server().listen(port)
-console.log(name, 'listening on port', port)
+module.exports=server;
