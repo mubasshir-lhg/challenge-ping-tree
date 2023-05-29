@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "720c7284-9c2f-46a5-a320-f92435590ff4",
+		"name": "ping-tree",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11047642",
+		"_collection_link": "https://crimson-equinox-53920.postman.co/workspace/Team-Workspace~8975ffdd-27b3-4a16-8cf6-49d10312890f/collection/11047642-720c7284-9c2f-46a5-a320-f92435590ff4?action=share&creator=11047642&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Create Target",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n     \"url\": \"http://example.3.com\",\r\n     \"value\": 1,\r\n     \"maxAcceptsPerDay\": 3,\r\n     \"accept\": {\r\n         \"geoState\": {\r\n             \"$in\": [\"ca\",\"ny\"]\r\n         },\r\n           \"hour\": {\r\n             \"$in\": [ 13,16,18]\r\n           }\r\n     }\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/targets",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"targets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Targets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/targets",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"targets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Target By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/targets/cli8vhy570004fouca4tbcow9",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"targets",
+						"cli8vhy570004fouca4tbcow9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Target Max Attempts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n     \"timestamp\":\"2015-02-27T12:00:00Z\"\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/targets/cli8vsbzl000c3wuc3w13ad67",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"targets",
+						"cli8vsbzl000c3wuc3w13ad67"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Decision",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"geoState\": \"ca\",\r\n     \"publisher\": \"abc\",\r\n     \"timestamp\": \"2018-07-11T18:28:59.513Z\"\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/route",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"route"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://fda3-185-199-103-246.sa.ngrok.io",
+			"type": "string"
+		}
+	]
+}
