@@ -1,4 +1,4 @@
-const redisClient=require("../lib/redis")
+const {redis:redisClient}=require("../lib/redis");
 
 const getTargets=async()=>JSON.parse(await redisClient.get("TARGETS"))||[];
 
@@ -6,7 +6,7 @@ const getTargets=async()=>JSON.parse(await redisClient.get("TARGETS"))||[];
 const getTargetById=async (targetId)=>{
     try {
     const targets=await getTargets();
-    return targets.length?targets.find(({id})=>+targetId===+id):null;
+    return targets.length?targets.find(({id})=>targetId==id):null;
     } catch (error) {
         throw new Error(error)
     }
@@ -16,6 +16,7 @@ const getUtcHour=(date)=>new Date(date).getUTCHours();
 
 
 const getUtcDate=(date)=>{
+    console.log("getUtcDate =====> ",date)
     const utcDate=new Date(date).getUTCDate();
     const utcMonth=new Date(date).getUTCMonth();
     const utcYear=new Date(date).getUTCFullYear();
@@ -24,7 +25,8 @@ const getUtcDate=(date)=>{
 
 const deleteAll=async()=>{
     try {
-        await redisClient.flushall();
+        redisClient.set("TARGETS",JSON.stringify([]));
+        redisClient.set("SCORE",JSON.stringify({}));
     } catch (error) {
         console.log(error);
         process.exit(0)
